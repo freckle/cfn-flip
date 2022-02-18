@@ -18,19 +18,39 @@ import Conduit
 -- :}
 -- "this is (a thing) here)"
 --
+-- Note that imbalance will terminate early,
+--
+-- >>> :{
+-- runIdentity
+--   $ runConduit
+--   $ yieldMany "this is, a) unexpected but b) the best we can do)"
+--   .| takeBalancedC (== '(') (==')')
+--   .| sinkList
+-- :}
+-- "this is, a)"
+--
+-- Or just run to the end
+--
+-- >>> :{
+-- runIdentity
+--   $ runConduit
+--   $ yieldMany "this is (pretty unlikely"
+--   .| takeBalancedC (== '(') (==')')
+--   .| sinkList
+-- :}
+-- "this is (pretty unlikely"
+--
 takeBalancedC :: Monad m => (a -> Bool) -> (a -> Bool) -> ConduitT a a m ()
 takeBalancedC reopens closes = go (0 :: Int)
  where
   go balance = do
     me <- await
 
-    for_ me $ \case
-      a | closes a -> do
-        yield a
-        unless (balance <= 0) $ go $ balance - 1
-      a | reopens a -> do
-        yield a
-        go $ balance + 1
-      a -> do
-        yield a
-        go balance
+    for_ me $ \a -> do
+      let
+        loop
+          | closes a = unless (balance <= 0) $ go $ balance - 1
+          | reopens a = go $ balance + 1
+          | otherwise = go balance
+
+      yield a >> loop
