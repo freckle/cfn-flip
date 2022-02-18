@@ -1,0 +1,18 @@
+restylers:
+  - brittany
+  - jq:
+      enabled: false # use prettier-json
+  - prettier-json:
+      include:
+        - "**/*.json"
+        - "!test/examples/**/*"
+  - prettier-yaml:
+      include:
+        - "**/*.yaml"
+        - "**/*.yml"
+        - "!test/examples/**/*"
+  - whitespace:
+      include:
+        - "**/*"
+        - "!test/examples/**/*"
+  - "*"
