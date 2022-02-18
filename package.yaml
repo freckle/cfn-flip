@@ -1,0 +1,72 @@
+name: cfn-flip
+version: 0.0.0.0
+dependencies:
+  - base >= 4.11 && < 10
+
+extra-source-files:
+  - CHANGELOG.md
+  - README.md
+  - test/examples/*.json
+  - test/examples/*.yaml
+
+ghc-options:
+  - -fwrite-ide-info
+  - -Weverything
+  - -Wno-prepositive-qualified-module
+  - -Wno-missing-import-lists
+  - -Wno-unsafe
+  - -Wno-missing-safe-haskell-mode
+  - -Wno-missing-local-signatures
+
+default-extensions:
+  - BangPatterns
+  - DataKinds
+  - DeriveAnyClass
+  - DeriveFoldable
+  - DeriveFunctor
+  - DeriveGeneric
+  - DeriveLift
+  - DeriveTraversable
+  - DerivingStrategies
+  - DerivingVia
+  - FlexibleContexts
+  - FlexibleInstances
+  - GADTs
+  - GeneralizedNewtypeDeriving
+  - LambdaCase
+  - MultiParamTypeClasses
+  - NoImplicitPrelude
+  - NoMonomorphismRestriction
+  - OverloadedStrings
+  - RankNTypes
+  - RecordWildCards
+  - ScopedTypeVariables
+  - StandaloneDeriving
+  - TypeApplications
+  - TypeFamilies
+
+library:
+  source-dirs: src
+  dependencies:
+    - aeson
+    - bytestring
+    - conduit
+    - libyaml
+    - resourcet
+    - rio
+    - text
+    - unliftio
+    - yaml
+
+tests:
+  spec:
+    main: Spec.hs
+    source-dirs: test
+    dependencies:
+      - Glob
+      - aeson
+      - cfn-flip
+      - conduit
+      - hspec
+      - libyaml
+      - rio

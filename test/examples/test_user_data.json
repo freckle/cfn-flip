@@ -1,0 +1,7 @@
+{
+    "UserData": {
+        "Fn::Base64": {
+            "Fn::Sub": "#!/bin/bash -xe\necho \"WaitHandle '${WaitHandle}'\"\n/bin/echo '%password%' | /bin/passwd cloud_user --stdin\nyum update -y\nyum install python3 -y\nsu - cloud_user -c 'aws configure set region us-east-1'\nsu - cloud_user -c 'python3 -m pip install boto3'\n/opt/aws/bin/cfn-signal -e $? -r \"UserData script complete\" '${WaitHandle}'\n"
+        }
+    }
+}

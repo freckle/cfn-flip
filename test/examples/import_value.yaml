@@ -1,0 +1,4 @@
+Resources:
+  Foo:
+    Properties:
+      Name: !ImportValue "networking-VpcId"

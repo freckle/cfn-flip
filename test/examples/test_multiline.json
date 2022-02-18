@@ -1,0 +1,7 @@
+{
+    "UserData": {
+        "Fn::Base64": {
+            "Fn::Sub": "write_files:\n  - path: /etc/yum.repos.d/nix.repo\n    content: |\n       [nix]\n       name=nix Repository\n"
+        }
+    }
+}

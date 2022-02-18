@@ -1,0 +1,11 @@
+{
+  "Resources": {
+    "Foo": {
+      "Properties": {
+        "Name": {
+          "Fn::ImportValue": "networking-VpcId"
+        }
+      }
+    }
+  }
+}

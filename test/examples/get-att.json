@@ -1,0 +1,9 @@
+{
+  "Resources": {
+    "Foo": {
+      "Properties": {
+        "Name": {"Fn::GetAtt": ["Bar", "Baz"]}
+      }
+    }
+  }
+}

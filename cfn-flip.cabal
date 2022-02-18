@@ -1,0 +1,141 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.34.4.
+--
+-- see: https://github.com/sol/hpack
+
+name:           cfn-flip
+version:        0.0.0.0
+license:        MIT
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    CHANGELOG.md
+    README.md
+    test/examples/clean.json
+    test/examples/get-att.json
+    test/examples/import_value.json
+    test/examples/test.json
+    test/examples/test_json_data.json
+    test/examples/test_json_data_long_line.json
+    test/examples/test_json_def_string_with_sub.json
+    test/examples/test_json_state_machine.json
+    test/examples/test_long.json
+    test/examples/test_lorem.json
+    test/examples/test_multibyte.json
+    test/examples/test_multiline.json
+    test/examples/test_user_data.json
+    test/examples/test_yaml_def_string_with_sub.json
+    test/examples/test_yaml_long_line.json
+    test/examples/test_yaml_state_machine.json
+    test/examples/clean.yaml
+    test/examples/get-att.yaml
+    test/examples/import_value.yaml
+    test/examples/test.yaml
+    test/examples/test_json_data.yaml
+    test/examples/test_lorem.yaml
+    test/examples/test_multibyte.yaml
+    test/examples/test_multiline.yaml
+    test/examples/test_user_data.yaml
+    test/examples/test_yaml_def_string_with_sub.yaml
+    test/examples/test_yaml_long_line.yaml
+    test/examples/test_yaml_state_machine.yaml
+
+library
+  exposed-modules:
+      CfnFlip
+      CfnFlip.Conduit
+      CfnFlip.IntrinsicFunction
+      CfnFlip.JsonToYaml
+      CfnFlip.Libyaml
+      CfnFlip.Yaml
+      CfnFlip.YamlToJson
+  other-modules:
+      Paths_cfn_flip
+  hs-source-dirs:
+      src
+  default-extensions:
+      BangPatterns
+      DataKinds
+      DeriveAnyClass
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveLift
+      DeriveTraversable
+      DerivingStrategies
+      DerivingVia
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      NoMonomorphismRestriction
+      OverloadedStrings
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TypeApplications
+      TypeFamilies
+  ghc-options: -fwrite-ide-info -Weverything -Wno-prepositive-qualified-module -Wno-missing-import-lists -Wno-unsafe -Wno-missing-safe-haskell-mode -Wno-missing-local-signatures
+  build-depends:
+      aeson
+    , base >=4.11 && <10
+    , bytestring
+    , conduit
+    , libyaml
+    , resourcet
+    , rio
+    , text
+    , unliftio
+    , yaml
+  default-language: Haskell2010
+
+test-suite spec
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      CfnFlipSpec
+      Paths_cfn_flip
+  hs-source-dirs:
+      test
+  default-extensions:
+      BangPatterns
+      DataKinds
+      DeriveAnyClass
+      DeriveFoldable
+      DeriveFunctor
+      DeriveGeneric
+      DeriveLift
+      DeriveTraversable
+      DerivingStrategies
+      DerivingVia
+      FlexibleContexts
+      FlexibleInstances
+      GADTs
+      GeneralizedNewtypeDeriving
+      LambdaCase
+      MultiParamTypeClasses
+      NoImplicitPrelude
+      NoMonomorphismRestriction
+      OverloadedStrings
+      RankNTypes
+      RecordWildCards
+      ScopedTypeVariables
+      StandaloneDeriving
+      TypeApplications
+      TypeFamilies
+  ghc-options: -fwrite-ide-info -Weverything -Wno-prepositive-qualified-module -Wno-missing-import-lists -Wno-unsafe -Wno-missing-safe-haskell-mode -Wno-missing-local-signatures
+  build-depends:
+      Glob
+    , aeson
+    , base >=4.11 && <10
+    , cfn-flip
+    , conduit
+    , hspec
+    , libyaml
+    , rio
+  default-language: Haskell2010
