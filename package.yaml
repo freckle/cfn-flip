@@ -59,6 +59,13 @@ library:
     - yaml
 
 tests:
+  doctest:
+    main: DocTest.hs
+    dependencies:
+      - aeson
+      - doctest
+      - yaml
+
   spec:
     main: Spec.hs
     source-dirs: test
