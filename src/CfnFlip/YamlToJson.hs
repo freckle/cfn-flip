@@ -3,13 +3,13 @@ module CfnFlip.YamlToJson
   , translate
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction
 import CfnFlip.Libyaml
-import qualified RIO.ByteString as BS
-import qualified RIO.Partial as Unsafe (toEnum)
+import qualified Data.ByteString as BS
+import qualified Prelude as Unsafe (toEnum)
 
 translate :: MonadIO m => ConduitT Event Event m ()
 translate = awaitForever $ \case

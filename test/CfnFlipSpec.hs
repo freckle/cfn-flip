@@ -2,15 +2,14 @@ module CfnFlipSpec
   ( spec
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip
+import CfnFlip.Aeson hiding (json)
 import CfnFlip.Conduit
 import qualified CfnFlip.JsonToYaml as JsonToYaml
 import qualified CfnFlip.YamlToJson as YamlToJson
-import Data.Aeson hiding (json)
-import Data.Conduit.List (sourceList)
-import RIO.FilePath ((-<.>))
+import System.FilePath ((-<.>))
 import System.FilePath.Glob (globDir1)
 import Test.Hspec
 import qualified Text.Libyaml as Libyaml

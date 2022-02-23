@@ -1,18 +1,17 @@
 {-# OPTIONS_GHC -Wno-missing-signatures #-}
-{-# OPTIONS_GHC -Wno-missing-exported-signatures #-}
+{-# OPTIONS_GHC -Wno-missing-local-signatures #-}
 
 module CfnFlip.Yaml
   ( encode
   , decode
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
+import CfnFlip.Aeson (ToJSON(..))
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction
 import CfnFlip.Libyaml
-import Data.Aeson (ToJSON(..))
-import Data.Conduit.List (sourceList)
 import qualified Data.Yaml as Yaml
 import qualified Data.Yaml.Internal as Yaml
 import qualified Text.Libyaml as Libyaml
