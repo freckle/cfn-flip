@@ -1,11 +1,13 @@
 module CfnFlip.Conduit
   ( takeBalancedC
   , module Conduit
+  , module Data.Conduit.List
   ) where
 
 import RIO
 
 import Conduit
+import Data.Conduit.List (sourceList)
 
 -- | Take until an ending element, including any reopened-ended in between
 --
