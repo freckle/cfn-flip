@@ -5,7 +5,15 @@ cabal-version: 1.12
 -- see: https://github.com/sol/hpack
 
 name:           cfn-flip
-version:        0.1.0.0
+version:        0.1.0.1
+synopsis:       Haskell implementation of aws/cfn-flip
+description:    Functions to flip between CloudFormation Yaml and JSON syntaxes
+category:       Tools
+homepage:       https://github.com/freckle/cfn-flip#readme
+bug-reports:    https://github.com/freckle/cfn-flip/issues
+author:         Freckle R&D
+maintainer:     freckle-engineering@renaissance.com
+copyright:      2021 Renaissance Learning Inc
 license:        MIT
 license-file:   LICENSE
 build-type:     Simple
@@ -40,6 +48,10 @@ extra-source-files:
     test/examples/test_yaml_def_string_with_sub.yaml
     test/examples/test_yaml_long_line.yaml
     test/examples/test_yaml_state_machine.yaml
+
+source-repository head
+  type: git
+  location: https://github.com/freckle/cfn-flip
 
 library
   exposed-modules:
