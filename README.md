@@ -4,7 +4,9 @@ Pure Haskell implementation of [cfn-flip][].
 
 [cfn-flip]: https://github.com/awslabs/aws-cfn-template-flip
 
-This is a **work in progress**.
+## Usage
+
+See [CfnFlip.hs](./src/CfnFlip.hs).
 
 ---
 
