@@ -36,4 +36,3 @@ jsonFileToYaml = jsonToYaml @_ @Value <=< eitherDecodeFileStrictThrow
 -- | Convert a 'ToJSON a' to a 'ByteString' of Yaml
 jsonToYaml :: (MonadUnliftIO m, ToJSON a) => a -> m ByteString
 jsonToYaml = Yaml.encode JsonToYaml.translate
-
