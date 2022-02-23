@@ -10,13 +10,10 @@ extra-source-files:
   - test/examples/*.yaml
 
 ghc-options:
-  - -fwrite-ide-info
   - -Weverything
-  - -Wno-prepositive-qualified-module
+  - -Wno-missing-exported-signatures # re-enables missing-signatures
   - -Wno-missing-import-lists
   - -Wno-unsafe
-  - -Wno-missing-safe-haskell-mode
-  - -Wno-missing-local-signatures
 
 default-extensions:
   - BangPatterns
@@ -28,7 +25,6 @@ default-extensions:
   - DeriveLift
   - DeriveTraversable
   - DerivingStrategies
-  - DerivingVia
   - FlexibleContexts
   - FlexibleInstances
   - GADTs
@@ -44,6 +40,15 @@ default-extensions:
   - StandaloneDeriving
   - TypeApplications
   - TypeFamilies
+
+when:
+  - condition: "impl(ghc > 8.10)"
+    ghc-options:
+      - -fwrite-ide-info
+      - -Wno-prepositive-qualified-module
+      - -Wno-missing-safe-haskell-mode
+    default-extensions:
+      - DerivingVia
 
 library:
   source-dirs: src

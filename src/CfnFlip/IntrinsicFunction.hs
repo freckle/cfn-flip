@@ -61,4 +61,7 @@ intrinsics = map
     | otherwise = ("!" <> unpack x, "Fn::" <> encodeUtf8 x)
 
 swappedIntrinsics :: [(ByteString, String)]
-swappedIntrinsics = map swap intrinsics where swap (a, b) = (b, a)
+swappedIntrinsics = map swap intrinsics
+ where
+  swap :: (a, b) -> (b, a)
+  swap (a, b) = (b, a)
