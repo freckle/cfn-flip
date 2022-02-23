@@ -79,6 +79,6 @@ tests:
       - aeson
       - cfn-flip
       - conduit
+      - filepath
       - hspec
       - libyaml
-      - rio

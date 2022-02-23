@@ -7,7 +7,7 @@ module CfnFlip
   , jsonToYaml
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Aeson
 import qualified CfnFlip.JsonToYaml as JsonToYaml

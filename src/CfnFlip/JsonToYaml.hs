@@ -3,7 +3,7 @@ module CfnFlip.JsonToYaml
   , translate
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction

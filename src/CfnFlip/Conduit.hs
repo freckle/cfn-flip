@@ -4,7 +4,7 @@ module CfnFlip.Conduit
   , module Data.Conduit.List
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import Conduit
 import Data.Conduit.List (sourceList)

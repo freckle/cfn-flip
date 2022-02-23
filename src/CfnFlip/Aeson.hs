@@ -3,7 +3,7 @@ module CfnFlip.Aeson
   , module Data.Aeson
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import Data.Aeson
 

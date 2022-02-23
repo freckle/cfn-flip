@@ -6,7 +6,7 @@ module CfnFlip.Yaml
   , decode
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Aeson (ToJSON(..))
 import CfnFlip.Conduit

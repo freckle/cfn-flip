@@ -4,10 +4,9 @@ module CfnFlip.IntrinsicFunction
   , fromIntrinsicFunction
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Libyaml (Event(..), Tag(..))
-import RIO.Text (unpack)
 
 -- | If an 'Event' is using a known @"!X"@, returns the @"Fn::Y"@ for it
 getIntrinsicFunction :: Event -> Maybe ByteString

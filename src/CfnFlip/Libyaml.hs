@@ -9,7 +9,7 @@ module CfnFlip.Libyaml
   , module Text.Libyaml
   ) where
 
-import RIO
+import CfnFlip.Prelude
 
 import CfnFlip.Conduit
 import Text.Libyaml

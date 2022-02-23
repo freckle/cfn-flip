@@ -49,6 +49,7 @@ library
       CfnFlip.IntrinsicFunction
       CfnFlip.JsonToYaml
       CfnFlip.Libyaml
+      CfnFlip.Prelude
       CfnFlip.Yaml
       CfnFlip.YamlToJson
   other-modules:
@@ -180,9 +181,9 @@ test-suite spec
     , base >=4.11 && <10
     , cfn-flip
     , conduit
+    , filepath
     , hspec
     , libyaml
-    , rio
   if impl(ghc > 8.10)
     default-extensions:
         DerivingVia
