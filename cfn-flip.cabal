@@ -89,9 +89,9 @@ library
     , conduit
     , libyaml
     , resourcet
-    , rio
     , text
     , unliftio
+    , unliftio-core
     , yaml
   if impl(ghc > 8.10)
     default-extensions:

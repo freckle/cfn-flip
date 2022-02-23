@@ -58,9 +58,9 @@ library:
     - conduit
     - libyaml
     - resourcet
-    - rio
     - text
     - unliftio
+    - unliftio-core
     - yaml
 
 tests:
