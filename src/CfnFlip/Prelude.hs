@@ -6,7 +6,7 @@ module CfnFlip.Prelude
 
 import Prelude as X
 
-import Control.Monad as X (unless, when, (<=<))
+import Control.Monad as X ((<=<), unless, when)
 import Control.Monad.IO.Class as X (MonadIO(..))
 import Control.Monad.IO.Unlift as X (MonadUnliftIO)
 import Data.ByteString as X (ByteString)
