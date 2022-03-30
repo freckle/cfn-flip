@@ -5,11 +5,6 @@ license: MIT
 author: "Freckle R&D"
 maintainer: "freckle-engineering@renaissance.com"
 copyright: "2021 Renaissance Learning Inc"
-
-extra-source-files:
-  - README.md
-  - CHANGELOG.md
-
 category: Tools
 synopsis: Haskell implementation of aws/cfn-flip
 description: |
@@ -18,9 +13,11 @@ description: |
 dependencies:
   - base >= 4.11 && < 10
 
-extra-source-files:
+extra-doc-files:
   - CHANGELOG.md
   - README.md
+
+extra-source-files:
   - test/examples/*.json
   - test/examples/*.yaml
 
