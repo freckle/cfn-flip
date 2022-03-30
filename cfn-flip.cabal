@@ -107,10 +107,10 @@ library
     , yaml
   if impl(ghc >= 9.2)
     ghc-options: -Wno-missing-kind-signatures
-  if impl(ghc > 8.10)
+  if impl(ghc >= 8.10)
     default-extensions:
         DerivingVia
-    ghc-options: -fwrite-ide-info -Wno-prepositive-qualified-module -Wno-missing-safe-haskell-mode
+    ghc-options: -fwrite-ide-info -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
   default-language: Haskell2010
 
 test-suite doctest
@@ -151,10 +151,10 @@ test-suite doctest
     , yaml
   if impl(ghc >= 9.2)
     ghc-options: -Wno-missing-kind-signatures
-  if impl(ghc > 8.10)
+  if impl(ghc >= 8.10)
     default-extensions:
         DerivingVia
-    ghc-options: -fwrite-ide-info -Wno-prepositive-qualified-module -Wno-missing-safe-haskell-mode
+    ghc-options: -fwrite-ide-info -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
   default-language: Haskell2010
 
 test-suite spec
@@ -200,8 +200,8 @@ test-suite spec
     , libyaml
   if impl(ghc >= 9.2)
     ghc-options: -Wno-missing-kind-signatures
-  if impl(ghc > 8.10)
+  if impl(ghc >= 8.10)
     default-extensions:
         DerivingVia
-    ghc-options: -fwrite-ide-info -Wno-prepositive-qualified-module -Wno-missing-safe-haskell-mode
+    ghc-options: -fwrite-ide-info -Wno-missing-safe-haskell-mode -Wno-prepositive-qualified-module
   default-language: Haskell2010
