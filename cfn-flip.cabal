@@ -100,11 +100,12 @@ library
     , bytestring
     , conduit
     , libyaml
-    , resourcet
     , text
     , unliftio
     , unliftio-core
     , yaml
+  if impl(ghc >= 9.2)
+    ghc-options: -Wno-missing-kind-signatures
   if impl(ghc > 8.10)
     default-extensions:
         DerivingVia
@@ -147,6 +148,8 @@ test-suite doctest
     , base >=4.11 && <10
     , doctest
     , yaml
+  if impl(ghc >= 9.2)
+    ghc-options: -Wno-missing-kind-signatures
   if impl(ghc > 8.10)
     default-extensions:
         DerivingVia
@@ -189,13 +192,13 @@ test-suite spec
   ghc-options: -Weverything -Wno-missing-exported-signatures -Wno-missing-import-lists -Wno-unsafe
   build-depends:
       Glob
-    , aeson
     , base >=4.11 && <10
     , cfn-flip
-    , conduit
     , filepath
     , hspec
     , libyaml
+  if impl(ghc >= 9.2)
+    ghc-options: -Wno-missing-kind-signatures
   if impl(ghc > 8.10)
     default-extensions:
         DerivingVia

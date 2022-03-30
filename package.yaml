@@ -57,7 +57,10 @@ default-extensions:
   - TypeFamilies
 
 when:
-  - condition: "impl(ghc > 8.10)"
+  - condition: impl(ghc >= 9.2)
+    ghc-options:
+      - -Wno-missing-kind-signatures
+  - condition: impl(ghc > 8.10)
     ghc-options:
       - -fwrite-ide-info
       - -Wno-prepositive-qualified-module
@@ -72,7 +75,6 @@ library:
     - bytestring
     - conduit
     - libyaml
-    - resourcet
     - text
     - unliftio
     - unliftio-core
@@ -91,9 +93,7 @@ tests:
     source-dirs: test
     dependencies:
       - Glob
-      - aeson
       - cfn-flip
-      - conduit
       - filepath
       - hspec
       - libyaml
