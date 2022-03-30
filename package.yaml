@@ -57,11 +57,11 @@ when:
   - condition: impl(ghc >= 9.2)
     ghc-options:
       - -Wno-missing-kind-signatures
-  - condition: impl(ghc > 8.10)
+  - condition: impl(ghc >= 8.10)
     ghc-options:
       - -fwrite-ide-info
-      - -Wno-prepositive-qualified-module
       - -Wno-missing-safe-haskell-mode
+      - -Wno-prepositive-qualified-module
     default-extensions:
       - DerivingVia
 
