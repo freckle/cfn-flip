@@ -8,7 +8,7 @@ module CfnFlip.Yaml
 
 import CfnFlip.Prelude
 
-import CfnFlip.Aeson (ToJSON(..))
+import CfnFlip.Aeson (ToJSON)
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction
 import CfnFlip.Libyaml
@@ -27,7 +27,7 @@ encode
   -> m ByteString
 encode c a =
   runConduitRes
-    $ sourceList (Yaml.objToStream stringStyle $ toJSON a)
+    $ sourceList (Yaml.objToStream stringStyle a)
     .| c
     .| fixQuoting
     .| Libyaml.encodeWith formatOptions
