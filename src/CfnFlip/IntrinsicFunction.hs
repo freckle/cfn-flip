@@ -38,7 +38,6 @@ intrinsics = map
   [ "And"
   , "Base64"
   , "Cidr"
-  , "Condition"
   , "Equals"
   , "FindInMap"
   , "GetAtt"
@@ -56,7 +55,7 @@ intrinsics = map
   ]
  where
   toFn x
-    | x `elem` ["Ref", "Condition"] = ("!" <> unpack x, encodeUtf8 x)
+    | x == "Ref" = ("!" <> unpack x, encodeUtf8 x)
     | otherwise = ("!" <> unpack x, "Fn::" <> encodeUtf8 x)
 
 swappedIntrinsics :: [(ByteString, String)]
