@@ -1,6 +1,8 @@
-## [_Unreleased_](https://github.com/freckle/cfn-flip/compare/v0.1.0.2...main)
+## [_Unreleased_](https://github.com/freckle/cfn-flip/compare/v0.1.0.3...main)
 
-None
+## [v0.1.0.3](https://github.com/freckle/cfn-flip/compare/v0.1.0.2...v0.1.0.3)
+
+- Fix mis-handling of `Condition` property
 
 ## [v0.1.0.1](https://github.com/freckle/cfn-flip/compare/v0.1.0.1...v0.1.0.2)
 
