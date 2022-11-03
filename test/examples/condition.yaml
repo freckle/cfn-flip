@@ -1,0 +1,4 @@
+Resources:
+  ApiStage:
+    Condition: HasHttpApi
+    Type: AWS::ApiGateway::Stage

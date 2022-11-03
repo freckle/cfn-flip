@@ -19,6 +19,7 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     test/examples/clean.json
+    test/examples/condition.json
     test/examples/get-att.json
     test/examples/import_value.json
     test/examples/test.json
@@ -35,6 +36,7 @@ extra-source-files:
     test/examples/test_yaml_long_line.json
     test/examples/test_yaml_state_machine.json
     test/examples/clean.yaml
+    test/examples/condition.yaml
     test/examples/get-att.yaml
     test/examples/import_value.yaml
     test/examples/test.yaml
