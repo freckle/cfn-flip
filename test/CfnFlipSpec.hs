@@ -5,7 +5,7 @@ module CfnFlipSpec
 import CfnFlip.Prelude
 
 import CfnFlip
-import CfnFlip.Aeson hiding (json)
+import CfnFlip.Aeson (Value, eitherDecodeFileStrictThrow)
 import CfnFlip.Conduit
 import qualified CfnFlip.JsonToYaml as JsonToYaml
 import qualified CfnFlip.YamlToJson as YamlToJson
