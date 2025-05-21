@@ -23,6 +23,8 @@ extra-source-files:
 
 ghc-options:
   - -Weverything
+  - -Wno-all-missed-specialisations
+  - -Wno-missed-specialisations
   - -Wno-missing-exported-signatures # re-enables missing-signatures
   - -Wno-missing-import-lists
   - -Wno-unsafe
