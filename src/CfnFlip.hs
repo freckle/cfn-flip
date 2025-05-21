@@ -29,7 +29,6 @@ jsonToYamlFile path = writeFileBinary path <=< jsonToYaml
 -- | Read a file of JSON and produce a 'ByteString' of Yaml
 --
 -- NB. The conversion occurs at 'Value'.
---
 jsonFileToYaml :: MonadUnliftIO m => FilePath -> m ByteString
 jsonFileToYaml = jsonToYaml @_ @Value <=< eitherDecodeFileStrictThrow
 

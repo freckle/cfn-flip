@@ -1,5 +1,5 @@
-{-# OPTIONS_GHC -Wno-missing-signatures #-}
 {-# OPTIONS_GHC -Wno-missing-local-signatures #-}
+{-# OPTIONS_GHC -Wno-missing-signatures #-}
 
 module CfnFlip.Yaml
   ( encode
@@ -8,7 +8,7 @@ module CfnFlip.Yaml
 
 import CfnFlip.Prelude
 
-import CfnFlip.Aeson (ToJSON, FromJSON)
+import CfnFlip.Aeson (FromJSON, ToJSON)
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction
 import CfnFlip.Libyaml
@@ -17,8 +17,8 @@ import qualified Data.Yaml.Internal as Yaml
 import qualified Text.Libyaml as Libyaml
 
 newtype FromJSONError = FromJSONError String
-  deriving stock Show
-  deriving anyclass Exception
+  deriving stock (Show)
+  deriving anyclass (Exception)
 
 encode
   :: (MonadUnliftIO m, ToJSON a)
@@ -28,9 +28,9 @@ encode
 encode c a =
   runConduitRes
     $ sourceList (Yaml.objToStream stringStyle a)
-    .| c
-    .| fixQuoting
-    .| Libyaml.encodeWith formatOptions
+      .| c
+      .| fixQuoting
+      .| Libyaml.encodeWith formatOptions
  where
   stringStyle = Yaml.defaultStringStyle
 
@@ -38,10 +38,13 @@ encode c a =
     Libyaml.setTagRendering Libyaml.renderUriTags Libyaml.defaultFormatOptions
 
 fixQuoting :: Monad m => ConduitT Event Event m ()
-fixQuoting = awaitForever $ yield . \case
-  e@(EventScalar x t _ z) | Just _ <- getIntrinsicFunction e ->
-    EventScalar x t SingleQuoted z
-  e -> e
+fixQuoting =
+  awaitForever
+    $ yield . \case
+      e@(EventScalar x t _ z)
+        | Just _ <- getIntrinsicFunction e ->
+            EventScalar x t SingleQuoted z
+      e -> e
 
 decode
   :: (MonadIO m, FromJSON a)

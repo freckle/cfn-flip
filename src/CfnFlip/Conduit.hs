@@ -41,7 +41,6 @@ import Data.Conduit.List (sourceList)
 --   .| sinkList
 -- :}
 -- "this is (pretty unlikely"
---
 takeBalancedC :: Monad m => (a -> Bool) -> (a -> Bool) -> ConduitT a a m ()
 takeBalancedC reopens closes = go (0 :: Int)
  where
@@ -49,10 +48,9 @@ takeBalancedC reopens closes = go (0 :: Int)
     me <- await
 
     for_ me $ \a -> do
-      let
-        loop
-          | closes a = unless (balance <= 0) $ go $ balance - 1
-          | reopens a = go $ balance + 1
-          | otherwise = go balance
+      let loop
+            | closes a = unless (balance <= 0) $ go $ balance - 1
+            | reopens a = go $ balance + 1
+            | otherwise = go balance
 
       yield a >> loop

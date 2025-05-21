@@ -6,7 +6,7 @@ module CfnFlip.IntrinsicFunction
 
 import CfnFlip.Prelude
 
-import CfnFlip.Libyaml (Event(..), Tag(..))
+import CfnFlip.Libyaml (Event (..), Tag (..))
 
 -- | If an 'Event' is using a known @"!X"@, returns the @"Fn::Y"@ for it
 getIntrinsicFunction :: Event -> Maybe ByteString
@@ -33,26 +33,27 @@ fromIntrinsicFunction = \case
   _ -> Nothing
 
 intrinsics :: [(String, ByteString)]
-intrinsics = map
-  toFn
-  [ "And"
-  , "Base64"
-  , "Cidr"
-  , "Equals"
-  , "FindInMap"
-  , "GetAtt"
-  , "GetAZs"
-  , "If"
-  , "ImportValue"
-  , "Join"
-  , "Not"
-  , "Or"
-  , "Ref"
-  , "Select"
-  , "Split"
-  , "Sub"
-  , "Transform"
-  ]
+intrinsics =
+  map
+    toFn
+    [ "And"
+    , "Base64"
+    , "Cidr"
+    , "Equals"
+    , "FindInMap"
+    , "GetAtt"
+    , "GetAZs"
+    , "If"
+    , "ImportValue"
+    , "Join"
+    , "Not"
+    , "Or"
+    , "Ref"
+    , "Select"
+    , "Split"
+    , "Sub"
+    , "Transform"
+    ]
  where
   toFn x
     | x == "Ref" = ("!" <> unpack x, encodeUtf8 x)

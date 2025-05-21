@@ -1,5 +1,5 @@
 module CfnFlip.Libyaml
-  ( InvalidYamlEvent(..)
+  ( InvalidYamlEvent (..)
   , makeMapping
   , makeSequence
   , startsMapOrSequence
@@ -13,11 +13,16 @@ import CfnFlip.Prelude
 
 import CfnFlip.Conduit
 import Text.Libyaml
-  (Event(..), MappingStyle(..), SequenceStyle(..), Style(..), Tag(..))
+  ( Event (..)
+  , MappingStyle (..)
+  , SequenceStyle (..)
+  , Style (..)
+  , Tag (..)
+  )
 
 data InvalidYamlEvent = InvalidYamlEvent Event String
-  deriving stock Show
-  deriving anyclass Exception
+  deriving stock (Show)
+  deriving anyclass (Exception)
 
 makeMapping
   :: Monad m => ByteString -> ConduitT i Event m () -> ConduitT i Event m ()
@@ -35,20 +40,20 @@ makeSequence inner = do
 
 startsMapOrSequence :: Event -> Bool
 startsMapOrSequence = \case
-  EventMappingStart{} -> True
-  EventSequenceStart{} -> True
+  EventMappingStart {} -> True
+  EventSequenceStart {} -> True
   _ -> False
 
 isSameStart :: Event -> Event -> Bool
 x `isSameStart` y = case (x, y) of
-  (EventMappingStart{}, EventMappingStart{}) -> True
-  (EventSequenceStart{}, EventSequenceStart{}) -> True
+  (EventMappingStart {}, EventMappingStart {}) -> True
+  (EventSequenceStart {}, EventSequenceStart {}) -> True
   _ -> False
 
 isStartsEnd :: Event -> Event -> Bool
 x `isStartsEnd` y = case (x, y) of
-  (EventMappingStart{}, EventMappingEnd{}) -> True
-  (EventSequenceStart{}, EventSequenceEnd{}) -> True
+  (EventMappingStart {}, EventMappingEnd {}) -> True
+  (EventSequenceStart {}, EventSequenceEnd {}) -> True
   _ -> False
 
 takeMapOrSequenceC :: Monad m => Event -> ConduitT Event Event m ()
