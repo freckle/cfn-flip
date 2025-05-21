@@ -22,8 +22,9 @@ spec = do
   describe "yaml-to-json" $ do
     for_ yamls $ \yaml -> do
       it yaml $ do
-        when (yaml == "test/examples/test_json_data.yaml") $ pendingWith
-          "Converting Scalar strings of JSON to actual Mapping objects"
+        when (yaml == "test/examples/test_json_data.yaml")
+          $ pendingWith
+            "Converting Scalar strings of JSON to actual Mapping objects"
 
         actual <- yamlFileToJson @_ @Value yaml
         expected <- eitherDecodeFileStrictThrow @_ @Value $ yaml -<.> "json"
@@ -43,9 +44,9 @@ spec = do
           runResourceT $ runConduit $ Libyaml.decodeFile yaml .| sinkList
         actual <-
           runConduit
-          $ sourceList expected
-          .| YamlToJson.translate
-          .| JsonToYaml.translate
-          .| sinkList
+            $ sourceList expected
+              .| YamlToJson.translate
+              .| JsonToYaml.translate
+              .| sinkList
 
         actual `shouldBe` expected
