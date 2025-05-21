@@ -28,16 +28,6 @@ jobs:
         with:
           stack-yaml: ${{ matrix.stack-yaml }}
 
-  nightly:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-      - uses: freckle/stack-action@v5
-        with:
-          stack-yaml: stack-nightly.yaml
-          stack-arguments: --resolver nightly
-
   lint:
     runs-on: ubuntu-latest
     steps:
