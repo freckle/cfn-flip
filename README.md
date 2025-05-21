@@ -13,6 +13,17 @@ Pure Haskell implementation of [cfn-flip][].
 
 See [CfnFlip.hs](./src/CfnFlip.hs).
 
+## Release
+
+To release a new version of this library, push a commit to `main` using a
+[conventionally-formatted][conventionalcommmits] commit message.
+
+- Prefix with `fix:` to release a new patch version,
+- Prefix with `feat:` to release a new minor version, or
+- Use `<type>!:` or a `BREAKING CHANGE:` footer to release a new major version
+
+[conventionalcommmits]: https://www.conventionalcommits.org/en/v1.0.0/
+
 ---
 
 [LICENSE](./LICENSE) | [CHANGELOG](./CHANGELOG.md)
