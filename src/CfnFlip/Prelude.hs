@@ -23,6 +23,7 @@ import qualified Data.ByteString as BS
 
 {- FOURMOLU_ENABLE -}
 
+{-# ANN module ("HLint: ignore Avoid restricted alias" :: String) #-}
 {-# ANN module ("HLint: ignore Avoid restricted qualification" :: String) #-}
 
 readFileBinary :: MonadIO m => FilePath -> m ByteString
