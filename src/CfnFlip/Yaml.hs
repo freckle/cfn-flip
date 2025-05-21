@@ -8,7 +8,7 @@ module CfnFlip.Yaml
 
 import CfnFlip.Prelude
 
-import CfnFlip.Aeson (ToJSON)
+import CfnFlip.Aeson (ToJSON, FromJSON)
 import CfnFlip.Conduit
 import CfnFlip.IntrinsicFunction
 import CfnFlip.Libyaml
@@ -43,15 +43,11 @@ fixQuoting = awaitForever $ yield . \case
     EventScalar x t SingleQuoted z
   e -> e
 
--- We can't type this because Parse (nor ParserState) is exported
---
--- TODO: File a bug
---
--- decode
---   :: (MonadIO m, FromJSON a)
---   => ConduitT Event Event Yaml.Parse ()
---   -> ByteString
---   -> m a
+decode
+  :: (MonadIO m, FromJSON a)
+  => ConduitT Event Event Yaml.Parse ()
+  -> ByteString
+  -> m a
 decode c bs = liftIO $ do
   result <- Yaml.decodeHelper $ Libyaml.decode bs .| c
 
