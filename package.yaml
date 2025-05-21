@@ -1,5 +1,5 @@
 name: cfn-flip
-version: 0.1.0.3
+version: 0.0.0.0 # maintained by semantic-release
 github: "freckle/cfn-flip"
 license: MIT
 author: "Freckle R&D"
