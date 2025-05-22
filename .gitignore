@@ -1,2 +1,2 @@
-.stack*.yaml.lock
 .stack-work
+stack*.yaml.lock
