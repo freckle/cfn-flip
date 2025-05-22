@@ -30,4 +30,4 @@ jobs:
           FORCE_COLOR: 1
           GITHUB_TOKEN: ${{ steps.token.outputs.token }}
           HACKAGE_KEY: ${{ secrets.HACKAGE_UPLOAD_API_KEY }}
-          STACK_YAML: stack-lts-14.27.yaml
+          STACK_YAML: stack-lts14.yaml
